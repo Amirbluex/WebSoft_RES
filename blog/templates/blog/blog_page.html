@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+    <div class="single-page">
+        <div class="container">
+            <div class="main-single">
+                <article class="post-single">
+                    <header><h1>{{ article.title }}</h1>
+                        <div class="post-meta">
+                            <i class="fas fa-clock"></i>
+                            <span>{{ article.created }}  </span>
+                        </div>
+                        <div class="post-meta">
+                            <i class="fas fa-user"></i>
+                            <span>{{ article.author.fullname }}</span>
+                        </div>
+                        <div class="post-meta">
+                            <i class="fas fa-folder-open"></i>
+                            <span><a href="#" target="_blank">آموزش php</a></span>
+                        </div>
+                        <div class="post-meta">
+                            <i class="fas fa-eye"></i>
+                            <span>بازدید:34</span>
+                        </div>
+                    </header>
+
+                    <div class="post-thumbnail">
+                        <figure>
+                            <img {{ article.image.url }}>
+                        </figure>
+                    </div>
+
+                    <div class="content-single">
+                        <p>
+                            {{ article.body }}
+                        </p>
+                        <img src="{{ article.image.url }}">
+                    </div>
+                </article>
+                <section class="related-post">
+                    <div class="related-head">
+                        <h4>مطالب زیر را مطالعه کنید</h4>
+                    </div>
+
+                    <div class="article-slider">
+                        <div id="related_slider" class="owl-carousel owl-theme">
+                            <div class="item box-article">
+                                <img src="img/s.png">
+                                <h2><a href="#">آموزش طراحی سایت حرفه ای پروژه محور</a></h2>
+                                <p>چگونه سایت بسازیم؟ این سوالی است که در ابتدای کار شاید کمی سخت و پیچیده... </p>
+                                <div class="btn-more"><a href="#">بیشتر بخوانید</a></div>
+                            </div>
+
+                            <div class="item box-article">
+                                <img src="img/ss.png">
+                                <h2><a href="#">آموزش طراحی سایت حرفه ای پروژه محور</a></h2>
+                                <p>چگونه سایت بسازیم؟ این سوالی است که در ابتدای کار شاید کمی سخت و پیچیده... </p>
+                                <div class="btn-more"><a href="#">بیشتر بخوانید</a></div>
+                            </div>
+
+                            <div class="item box-article">
+                                <img src="img/sss.png">
+                                <h2><a href="#">آموزش طراحی سایت حرفه ای پروژه محور</a></h2>
+                                <p>چگونه سایت بسازیم؟ این سوالی است که در ابتدای کار شاید کمی سخت و پیچیده... </p>
+                                <div class="btn-more"><a href="#">بیشتر بخوانید</a></div>
+                            </div>
+
+                            <div class="item box-article">
+                                <img src="img/ssss.png">
+                                <h2><a href="#">آموزش طراحی سایت حرفه ای پروژه محور</a></h2>
+                                <p>چگونه سایت بسازیم؟ این سوالی است که در ابتدای کار شاید کمی سخت و پیچیده... </p>
+                                <div class="btn-more"><a href="#">بیشتر بخوانید</a></div>
+                            </div>
+
+                            <div class="item box-article">
+                                <img src="img/sss.png">
+                                <h2><a href="#">آموزش طراحی سایت حرفه ای پروژه محور</a></h2>
+                                <p>چگونه سایت بسازیم؟ این سوالی است که در ابتدای کار شاید کمی سخت و پیچیده... </p>
+                                <div class="btn-more"><a href="#">بیشتر بخوانید</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            {% include 'includes/sidebar.html' %}
+        </div>
+    </div>
+{% endblock %}
+

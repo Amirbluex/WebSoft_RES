@@ -1,0 +1,56 @@
+{% load static %}
+<div class="top-menu">
+    <div class="container">
+        <div class="topbar-right">
+            <ul>
+                <li><i class="fas fa-phone"></i>مشاوره و پشتیبانی واتساپ:25665523</li>
+                <li><i class="fa-regular fa-envelope"></i>ایمیل:websoft3.ir@gmail.com</li>
+            </ul>
+        </div>
+
+        <div class="topbar-left">
+            <ul>
+                <li><i class="fas fa-search"></i></li>
+                <li><i class="fas fa-shopping-bag"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img alt="img/logo.jpg" src="{% static "img/logo.jpg" %}">
+        </div>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="{% url 'home:home' %}">خانه</a></li>
+                <li><a href="{% url 'blog:blog_list' %}">مقالات<i class="fas fa-angle-down"></i></a>
+                    <ul>
+                        {% for category in category %}
+                            <li><a href="{% url 'blog:category_detail' category.id %}">{{ category.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="#">دوره ها</a></li>
+                <li><a href="#">خدمات ما</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="#"><h3
+                            style="font-family: 'Fedra Arabic Display AR+LT Black',serif">{{ request.user.fullname }}</h3>
+                        <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="#">پروفایل</a></li>
+                            <li><a href="{% url 'account:user_logout' %}">خروج از حساب</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+
+                    </nav>
+
+                {% else %}
+                    <div class="sign">
+                        <a href="{% url 'account:user_login' %}"><i class="fas fa-user-lock"></i>ورود/ثبت نام</a>
+                    </div>
+                {% endif %}
+    </div>
+</header>
